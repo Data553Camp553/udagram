@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Validators, UntypedFormBuilder, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { FeedProviderService } from '../services/feed.provider.service';
 
 import { LoadingController, ModalController } from '@ionic/angular';
@@ -14,18 +14,18 @@ import { LoadingController, ModalController } from '@ionic/angular';
 export class FeedUploadComponent implements OnInit {
   previewDataUrl;
   file: File;
-  uploadForm: FormGroup;
+  uploadForm: UntypedFormGroup;
 
   constructor(
     private feed: FeedProviderService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private loadingController: LoadingController,
     private modalController: ModalController
   ) { }
 
   ngOnInit() {
     this.uploadForm = this.formBuilder.group({
-      caption: new FormControl('', Validators.required)
+      caption: new UntypedFormControl('', Validators.required)
     });
   }
 
