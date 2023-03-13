@@ -1,0 +1,16 @@
+- docker-compose -f docker-compose-build.yaml build --parallel
+# Tagging
+- docker tag reverseproxy datacamp553/reverseproxy:v2
+- docker tag udagram-api-user datacamp553/udagram-api-user:v2
+- docker tag udagram-api-feed datacamp553/udagram-api-feed:v2
+- docker tag udagram-frontend datacamp553/udagram-frontend:v2
+# Do similar for other three images```
+
+# Push
+# Assuming DOCKER_PASSWORD and DOCKER_USERNAME are set in the Travis repository settings
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker push datacamp553/reverseproxy:v2
+- docker push datacamp553/udagram-api-user:v2
+- docker push datacamp553/udagram-api-feed:v2
+- docker push datacamp553/udagram-frontend:v2
+# Do similar for other three images
