@@ -22,10 +22,12 @@
 
     <ion-content id="main">
       <app-menubar></app-menubar>
-      <ion-router-outlet
-        style="margin-top: 56px"
-        id="content"
-      ></ion-router-outlet>
+      <ion-content>
+        <ion-router-outlet
+          id="content"
+          style="display: block; margin-top: 56px"
+        ></ion-router-outlet
+      ></ion-content>
     </ion-content>
   </ion-split-pane>
 </ion-app>
