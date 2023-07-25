@@ -2,8 +2,10 @@ import AWS from "aws-sdk";
 import { config } from "./config/config";
 
 // Configure AWS
-const credentials = new AWS.SharedIniFileCredentials({
-  profile: config.aws_profile,
+const credentials = new AWS.Credentials({
+  accessKeyId: config.AWS_ACCESS_KEY_ID,
+  secretAccessKey: config.AWS_SECRET_ACCESS_KEY,
+  sessionToken: config.AWS_SESSION_TOKEN,
 });
 AWS.config.credentials = credentials;
 
